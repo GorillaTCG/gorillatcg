@@ -623,4 +623,15 @@ h1, h2, h3, p {
   .card-1, .card-2, .card-3, .card-4, .card-5, .card-6 {
     opacity: 0.55;
   }
+  /* Category Icons Fix */
+.category-icon {
+  width: 90px;
+  height: 90px;
+  padding: 14px;
+  background: radial-gradient(circle at center, #0a0a0a, #000);
+  border-radius: 18px;
+  border: 1px solid rgba(0,255,120,0.25);
+  box-shadow: 0 0 18px rgba(0,255,120,0.4), inset 0 0 12px rgba(0,255,120,0.15);
+  object-fit: contain;
+}
 }
