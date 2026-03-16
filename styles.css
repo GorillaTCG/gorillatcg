@@ -1,196 +1,626 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Gorilla TCG Co.</title>
-  <meta
-    name="description"
-    content="Premium Pokémon products for collectors and fans."
-  />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Orbitron:wght@600;700;800&display=swap"
-    rel="stylesheet"
-  />
-  <link rel="stylesheet" href="styles.css" />
-</head>
-<body>
+:root {
+  --bg: #040704;
+  --bg-soft: #0a0f0a;
+  --panel: rgba(255, 255, 255, 0.03);
+  --line: rgba(255, 255, 255, 0.08);
+  --text: #f5f7f5;
+  --muted: #b4b9b4;
+  --green: #39ff14;
+  --green-soft: #94ff66;
+  --radius: 22px;
+}
 
-  <header class="site-header">
-    <div class="container nav-wrap">
-      <a href="#top" class="brand">
-        <img src="logo.png" alt="Gorilla TCG Co. logo" class="brand-logo" />
-      </a>
+* {
+  box-sizing: border-box;
+}
 
-      <nav class="nav-links">
-        <a href="#products">Products</a>
-        <a href="#featured">Featured</a>
-        <a href="#launch">Launch</a>
-        <a href="#contact">Contact</a>
-      </nav>
+html {
+  scroll-behavior: smooth;
+}
 
-      <a href="mailto:contact@gorillatcg.com" class="email-btn">Email Us</a>
-    </div>
-  </header>
+body {
+  margin: 0;
+  color: var(--text);
+  font-family: "Inter", sans-serif;
+  background:
+    radial-gradient(circle at top left, rgba(57,255,20,0.08), transparent 20%),
+    radial-gradient(circle at top right, rgba(57,255,20,0.08), transparent 20%),
+    linear-gradient(180deg, #050805 0%, #040704 100%);
+  overflow-x: hidden;
+}
 
-  <main id="top">
+img {
+  max-width: 100%;
+  display: block;
+}
 
-    <section class="hero">
-      <div class="container hero-wrap">
-        <img src="hero-banner.png" alt="Gorilla TCG Co. hero banner" class="hero-banner" />
+a {
+  color: inherit;
+  text-decoration: none;
+}
 
-        <div class="hero-copy">
-          <p class="eyebrow">Premium Pokémon Retail Brand</p>
-          <h1>Premium Pokémon products for collectors and fans</h1>
-          <p class="hero-text">
-            Gorilla TCG Co. is building a premium destination for sealed Pokémon
-            products, singles, accessories, and collectible merchandise.
-          </p>
+h1, h2, h3, p {
+  margin-top: 0;
+}
 
-          <div class="hero-actions">
-            <a href="#products" class="primary-btn">Browse Products</a>
-            <a href="#contact" class="secondary-btn">Contact Us</a>
-          </div>
-        </div>
-      </div>
-    </section>
+.container {
+  width: min(1200px, calc(100% - 32px));
+  margin: 0 auto;
+}
 
-    <section class="products-section" id="products">
-      <div class="container">
-        <div class="section-heading">
-          <p class="eyebrow">Core Categories</p>
-          <h2>Products We Carry</h2>
-          <p>Browse the product categories Gorilla TCG Co. is built around.</p>
-        </div>
+.eyebrow {
+  color: var(--green-soft);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 12px;
+  font-weight: 800;
+  margin-bottom: 14px;
+}
 
-        <div class="product-grid">
-          <article class="product-card">
-            <img src="sealed_products_icon.png" alt="Sealed products icon" class="product-icon" />
-            <h3>Sealed Products</h3>
-            <p>
-              Booster boxes, booster packs, Elite Trainer Boxes, and other sealed Pokémon releases.
-            </p>
-          </article>
+.section-heading {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto 42px;
+}
 
-          <article class="product-card">
-            <img src="singles_icon.png" alt="Singles icon" class="product-icon" />
-            <h3>Singles</h3>
-            <p>
-              Individual Pokémon cards for collectors, set builders, and fans looking for specific pulls.
-            </p>
-          </article>
+.section-heading h2 {
+  font-size: clamp(30px, 4vw, 42px);
+  margin-bottom: 12px;
+}
 
-          <article class="product-card">
-            <img src="accessories_icon.png" alt="Accessories icon" class="product-icon" />
-            <h3>Accessories</h3>
-            <p>
-              Sleeves, binders, deck boxes, top loaders, and protection items for collectors.
-            </p>
-          </article>
+.section-heading p {
+  color: var(--muted);
+  font-size: 17px;
+  line-height: 1.7;
+}
 
-          <article class="product-card">
-            <img src="plush_icon.png" alt="Figures and plush icon" class="product-icon" />
-            <h3>Figures &amp; Plush</h3>
-            <p>
-              Pokémon collectible merchandise including plush items and display pieces.
-            </p>
-          </article>
-        </div>
-      </div>
-    </section>
+/* Header */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 60;
+  backdrop-filter: blur(14px);
+  background: rgba(4, 7, 4, 0.84);
+  border-bottom: 1px solid var(--line);
+}
 
-    <section class="featured-section" id="featured">
-      <div class="container">
-        <div class="section-heading">
-          <p class="eyebrow">Featured Products</p>
-          <h2>What You’ll Find In Store</h2>
-          <p>
-            A preview of the type of products Gorilla TCG Co. is built around.
-          </p>
-        </div>
+.nav-wrap {
+  min-height: 78px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
 
-        <div class="featured-grid">
-          <div class="featured-card">
-            <div class="featured-image-box">Booster Box</div>
-            <h3>Booster Boxes</h3>
-            <p>Popular sealed products for collectors and pack openings.</p>
-          </div>
+.brand-logo {
+  width: 140px;
+  max-width: 100%;
+}
 
-          <div class="featured-card">
-            <div class="featured-image-box">ETB</div>
-            <h3>Elite Trainer Boxes</h3>
-            <p>Premium boxed products with collectible presentation.</p>
-          </div>
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
 
-          <div class="featured-card">
-            <div class="featured-image-box">Booster Pack</div>
-            <h3>Booster Packs</h3>
-            <p>Featured packs for ripping, collecting, and restocks.</p>
-          </div>
+.nav-links a {
+  color: var(--muted);
+  font-weight: 600;
+  transition: 0.2s ease;
+}
 
-          <div class="featured-card">
-            <div class="featured-image-box">Sleeves</div>
-            <h3>Accessories</h3>
-            <p>Protection gear and supplies for hobby collectors.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+.nav-links a:hover {
+  color: var(--green-soft);
+}
 
-    <section class="launch-section" id="launch">
-      <div class="container launch-card">
-        <div class="launch-copy">
-          <p class="eyebrow">Launch Status</p>
-          <h2>Store launch in progress</h2>
-          <p>
-            Gorilla TCG Co. is currently building out the full storefront experience
-            and preparing for future product releases.
-          </p>
-        </div>
+.email-btn,
+.primary-btn,
+.secondary-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0 22px;
+  border-radius: 14px;
+  font-weight: 800;
+  transition: 0.25s ease;
+}
 
-        <div class="launch-tags">
-          <span>Premium Branding</span>
-          <span>Collector Focused</span>
-          <span>Online Storefront</span>
-        </div>
-      </div>
-    </section>
+.email-btn,
+.primary-btn {
+  background: linear-gradient(135deg, var(--green), var(--green-soft));
+  color: #061006;
+  box-shadow: 0 0 20px rgba(57,255,20,0.35);
+}
 
-    <section class="contact-section" id="contact">
-      <div class="container contact-grid">
-        <div class="contact-copy">
-          <p class="eyebrow">Business Contact</p>
-          <h2>Get in touch with Gorilla TCG Co.</h2>
-          <p>
-            For questions, business inquiries, or partnership opportunities,
-            reach out directly by email.
-          </p>
+.email-btn:hover,
+.primary-btn:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 0 28px rgba(57,255,20,0.55);
+}
 
-          <a href="mailto:contact@gorillatcg.com" class="primary-btn">
-            contact@gorillatcg.com
-          </a>
-        </div>
+.secondary-btn {
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,0.03);
+  color: var(--text);
+}
 
-        <div class="contact-visual">
-          <img src="contact-gorilla.png" alt="Gorilla TCG support mascot" class="contact-image" />
-        </div>
-      </div>
-    </section>
+.secondary-btn:hover {
+  border-color: rgba(57,255,20,0.35);
+  color: var(--green-soft);
+}
 
-  </main>
+/* Hero V3 */
+.hero-v3 {
+  position: relative;
+  min-height: 900px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 40px 0 60px;
+}
 
-  <footer class="site-footer">
-    <div class="container footer-wrap">
-      <div>
-        <div class="footer-brand">GORILLA TCG CO.</div>
-        <div class="footer-sub">Premium Pokémon products for collectors and fans</div>
-      </div>
+.hero-banner-v3 {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  z-index: 1;
+}
 
-      <a href="mailto:contact@gorillatcg.com" class="footer-link">contact@gorillatcg.com</a>
-    </div>
-  </footer>
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to bottom, rgba(4,7,4,0.15), rgba(4,7,4,0.35) 60%, rgba(4,7,4,0.75)),
+    radial-gradient(circle at center, rgba(57,255,20,0.08), transparent 45%);
+  z-index: 2;
+}
 
-</body>
-</html>
+.hero-radial {
+  position: absolute;
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(57,255,20,0.18), transparent 70%);
+  filter: blur(24px);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.hero-radial-left {
+  left: -80px;
+  top: 120px;
+}
+
+.hero-radial-right {
+  right: -80px;
+  top: 100px;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 4;
+  text-align: center;
+  padding-top: 440px;
+}
+
+.hero-text-wrap {
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.hero-text-wrap h1 {
+  font-family: "Orbitron", sans-serif;
+  font-size: clamp(34px, 5vw, 62px);
+  line-height: 1.08;
+  margin-bottom: 16px;
+  text-shadow: 0 0 18px rgba(57,255,20,0.15);
+}
+
+.hero-subtext {
+  color: #e4e7e4;
+  font-size: 18px;
+  line-height: 1.8;
+  margin-bottom: 26px;
+  text-shadow: 0 0 8px rgba(0,0,0,0.45);
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 26px;
+}
+
+.hero-pill-row {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.hero-pill-row span {
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: rgba(0,0,0,0.45);
+  border: 1px solid rgba(57,255,20,0.18);
+  color: var(--text);
+  font-weight: 700;
+  font-size: 14px;
+  backdrop-filter: blur(6px);
+}
+
+/* Floating Cards */
+.floating-card {
+  position: absolute;
+  width: 70px;
+  height: 96px;
+  border-radius: 10px;
+  border: 2px solid rgba(146,255,102,0.9);
+  background:
+    radial-gradient(circle at 50% 50%, rgba(57,255,20,0.12), transparent 55%),
+    rgba(0,0,0,0.22);
+  box-shadow:
+    0 0 20px rgba(57,255,20,0.35),
+    inset 0 0 18px rgba(57,255,20,0.08);
+  z-index: 3;
+  opacity: 0.8;
+  animation: floatCard 6s ease-in-out infinite;
+}
+
+.floating-card::before {
+  content: "";
+  position: absolute;
+  inset: 14px;
+  border: 2px solid rgba(146,255,102,0.85);
+  border-radius: 8px;
+}
+
+.floating-card::after {
+  content: "";
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  border: 2px solid rgba(146,255,102,0.9);
+  border-radius: 50%;
+  top: 34px;
+  left: 21px;
+}
+
+.card-1 { top: 120px; left: 6%; animation-delay: 0s; transform: rotate(-18deg); }
+.card-2 { top: 80px; left: 22%; animation-delay: 1s; transform: rotate(15deg); }
+.card-3 { top: 140px; right: 18%; animation-delay: 2s; transform: rotate(-10deg); }
+.card-4 { top: 90px; right: 7%; animation-delay: 0.5s; transform: rotate(14deg); }
+.card-5 { top: 240px; left: 12%; animation-delay: 1.5s; transform: rotate(-8deg); }
+.card-6 { top: 250px; right: 10%; animation-delay: 2.5s; transform: rotate(11deg); }
+
+@keyframes floatCard {
+  0%   { transform: translateY(0px) rotate(var(--r, 0deg)); }
+  50%  { transform: translateY(-14px) rotate(calc(var(--r, 0deg) + 2deg)); }
+  100% { transform: translateY(0px) rotate(var(--r, 0deg)); }
+}
+
+.card-1 { --r: -18deg; }
+.card-2 { --r: 15deg; }
+.card-3 { --r: -10deg; }
+.card-4 { --r: 14deg; }
+.card-5 { --r: -8deg; }
+.card-6 { --r: 11deg; }
+
+/* Products */
+.products-section {
+  padding: 84px 0 56px;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.product-card {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 28px;
+  transition: 0.25s ease;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.22);
+}
+
+.product-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(57,255,20,0.28);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.32), 0 0 22px rgba(57,255,20,0.08);
+}
+
+.product-icon {
+  width: 72px;
+  height: 72px;
+  object-fit: contain;
+  margin-bottom: 18px;
+  filter: drop-shadow(0 0 12px rgba(57,255,20,0.42));
+}
+
+.product-card h3 {
+  font-size: 24px;
+  margin-bottom: 12px;
+}
+
+.product-card p {
+  color: var(--muted);
+  line-height: 1.75;
+  font-size: 15px;
+}
+
+/* Featured */
+.featured-section {
+  padding: 46px 0 56px;
+}
+
+.featured-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.featured-card {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 22px;
+  transition: 0.25s ease;
+}
+
+.featured-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(57,255,20,0.28);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.32);
+}
+
+.featured-image-box {
+  min-height: 160px;
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background:
+    radial-gradient(circle at center, rgba(57,255,20,0.10), transparent 60%),
+    #070a07;
+  border: 1px solid rgba(57,255,20,0.10);
+  color: var(--green-soft);
+  font-family: "Orbitron", sans-serif;
+  font-size: 18px;
+  margin-bottom: 18px;
+}
+
+.featured-card h3 {
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+.featured-card p {
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+/* Launch */
+.launch-section {
+  padding: 34px 0 56px;
+}
+
+.launch-card {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 24px;
+  align-items: center;
+  background: linear-gradient(135deg, rgba(57,255,20,0.08), rgba(255,255,255,0.03));
+  border: 1px solid rgba(57,255,20,0.14);
+  border-radius: 28px;
+  padding: 34px;
+  box-shadow: 0 16px 40px rgba(0,0,0,0.25);
+}
+
+.launch-copy h2 {
+  font-size: clamp(28px, 4vw, 40px);
+  margin-bottom: 12px;
+}
+
+.launch-copy p {
+  color: var(--muted);
+  line-height: 1.8;
+  font-size: 16px;
+}
+
+.launch-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: flex-end;
+}
+
+.launch-tags span {
+  padding: 12px 16px;
+  border-radius: 999px;
+  background: rgba(57,255,20,0.08);
+  border: 1px solid rgba(57,255,20,0.18);
+  font-weight: 700;
+  color: var(--text);
+}
+
+/* Contact */
+.contact-section {
+  padding: 56px 0 84px;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  gap: 28px;
+  align-items: center;
+}
+
+.contact-copy h2 {
+  font-size: clamp(30px, 4vw, 44px);
+  margin-bottom: 14px;
+}
+
+.contact-copy p {
+  color: var(--muted);
+  line-height: 1.8;
+  font-size: 17px;
+  margin-bottom: 26px;
+}
+
+.contact-visual {
+  display: flex;
+  justify-content: center;
+}
+
+.contact-image {
+  max-width: 440px;
+  width: 100%;
+  filter: drop-shadow(0 0 24px rgba(57,255,20,0.22));
+}
+
+/* Footer */
+.site-footer {
+  border-top: 1px solid var(--line);
+  background: rgba(255,255,255,0.02);
+  padding: 24px 0 34px;
+}
+
+.footer-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.footer-brand {
+  font-family: "Orbitron", sans-serif;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.footer-sub {
+  color: var(--muted);
+  margin-top: 6px;
+  font-size: 14px;
+}
+
+.footer-link {
+  color: var(--green-soft);
+  font-weight: 800;
+}
+
+/* Responsive */
+@media (max-width: 1080px) {
+  .product-grid,
+  .featured-grid,
+  .launch-card,
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .launch-tags {
+    justify-content: flex-start;
+  }
+
+  .hero-v3 {
+    min-height: 780px;
+  }
+
+  .hero-content {
+    padding-top: 360px;
+  }
+}
+
+@media (max-width: 840px) {
+  .nav-wrap {
+    flex-direction: column;
+    justify-content: center;
+    padding: 14px 0;
+  }
+
+  .nav-links {
+    justify-content: center;
+  }
+
+  .brand-logo {
+    width: 120px;
+  }
+
+  .hero-text-wrap h1 {
+    font-size: 40px;
+  }
+
+  .section-heading h2,
+  .contact-copy h2,
+  .launch-copy h2 {
+    font-size: 30px;
+  }
+
+  .floating-card {
+    width: 56px;
+    height: 78px;
+  }
+
+  .floating-card::after {
+    width: 18px;
+    height: 18px;
+    top: 28px;
+    left: 17px;
+  }
+}
+
+@media (max-width: 640px) {
+  .container {
+    width: calc(100% - 20px);
+  }
+
+  .product-card,
+  .featured-card,
+  .launch-card {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .primary-btn,
+  .secondary-btn,
+  .email-btn {
+    width: 100%;
+  }
+
+  .hero-v3 {
+    min-height: 700px;
+    padding-top: 20px;
+  }
+
+  .hero-content {
+    padding-top: 310px;
+  }
+
+  .hero-pill-row {
+    gap: 8px;
+  }
+
+  .hero-pill-row span {
+    font-size: 12px;
+  }
+
+  .card-1, .card-2, .card-3, .card-4, .card-5, .card-6 {
+    opacity: 0.55;
+  }
+}
