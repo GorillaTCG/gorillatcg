@@ -1,464 +1,196 @@
-:root {
-  --bg: #040704;
-  --bg-soft: #0a0f0a;
-  --panel: rgba(255, 255, 255, 0.03);
-  --line: rgba(255, 255, 255, 0.08);
-  --text: #f5f7f5;
-  --muted: #b4b9b4;
-  --green: #39ff14;
-  --green-soft: #94ff66;
-  --radius: 22px;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  margin: 0;
-  color: var(--text);
-  font-family: "Inter", sans-serif;
-  background:
-    radial-gradient(circle at top left, rgba(57,255,20,0.08), transparent 20%),
-    radial-gradient(circle at top right, rgba(57,255,20,0.08), transparent 20%),
-    linear-gradient(180deg, #050805 0%, #040704 100%);
-}
-
-img {
-  max-width: 100%;
-  display: block;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-h1, h2, h3, p {
-  margin-top: 0;
-}
-
-.container {
-  width: min(1200px, calc(100% - 32px));
-  margin: 0 auto;
-}
-
-.eyebrow {
-  color: var(--green-soft);
-  text-transform: uppercase;
-  letter-spacing: 0.14em;
-  font-size: 12px;
-  font-weight: 800;
-  margin-bottom: 14px;
-}
-
-.section-heading {
-  text-align: center;
-  max-width: 760px;
-  margin: 0 auto 42px;
-}
-
-.section-heading h2 {
-  font-size: clamp(30px, 4vw, 42px);
-  margin-bottom: 12px;
-}
-
-.section-heading p {
-  color: var(--muted);
-  font-size: 17px;
-  line-height: 1.7;
-}
-
-/* Header */
-.site-header {
-  position: sticky;
-  top: 0;
-  z-index: 50;
-  backdrop-filter: blur(14px);
-  background: rgba(4, 7, 4, 0.84);
-  border-bottom: 1px solid var(--line);
-}
-
-.nav-wrap {
-  min-height: 78px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 24px;
-}
-
-.brand-logo {
-  width: 140px;
-  max-width: 100%;
-}
-
-.nav-links {
-  display: flex;
-  align-items: center;
-  gap: 24px;
-  flex-wrap: wrap;
-}
-
-.nav-links a {
-  color: var(--muted);
-  font-weight: 600;
-  transition: 0.2s ease;
-}
-
-.nav-links a:hover {
-  color: var(--green-soft);
-}
-
-.email-btn,
-.primary-btn,
-.secondary-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 48px;
-  padding: 0 22px;
-  border-radius: 14px;
-  font-weight: 800;
-  transition: 0.2s ease;
-}
-
-.email-btn,
-.primary-btn {
-  background: linear-gradient(135deg, var(--green), var(--green-soft));
-  color: #061006;
-  box-shadow: 0 0 20px rgba(57,255,20,0.35);
-}
-
-.email-btn:hover,
-.primary-btn:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 0 28px rgba(57,255,20,0.55);
-}
-
-.secondary-btn {
-  border: 1px solid var(--line);
-  background: rgba(255,255,255,0.03);
-  color: var(--text);
-}
-
-.secondary-btn:hover {
-  border-color: rgba(57,255,20,0.35);
-  color: var(--green-soft);
-}
-
-/* Hero */
-.hero {
-  padding: 34px 0 18px;
-}
-
-.hero-wrap {
-  text-align: center;
-}
-
-.hero-banner {
-  width: 100%;
-  max-width: 1280px;
-  margin: 0 auto 28px;
-  border-radius: 22px;
-}
-
-.hero-copy {
-  max-width: 860px;
-  margin: 0 auto;
-}
-
-.hero-copy h1 {
-  font-family: "Orbitron", sans-serif;
-  font-size: clamp(34px, 5vw, 62px);
-  line-height: 1.08;
-  margin-bottom: 16px;
-}
-
-.hero-text {
-  color: var(--muted);
-  font-size: 18px;
-  line-height: 1.8;
-  margin-bottom: 26px;
-}
-
-.hero-actions {
-  display: flex;
-  gap: 14px;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-/* Products */
-.products-section {
-  padding: 84px 0 56px;
-}
-
-.product-grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 20px;
-}
-
-.product-card {
-  background: var(--panel);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  padding: 28px;
-  transition: 0.25s ease;
-  box-shadow: 0 12px 30px rgba(0,0,0,0.22);
-}
-
-.product-card:hover {
-  transform: translateY(-6px);
-  border-color: rgba(57,255,20,0.28);
-  box-shadow: 0 18px 40px rgba(0,0,0,0.32), 0 0 22px rgba(57,255,20,0.08);
-}
-
-.product-icon {
-  width: 72px;
-  height: 72px;
-  object-fit: contain;
-  margin-bottom: 18px;
-  filter: drop-shadow(0 0 12px rgba(57,255,20,0.42));
-}
-
-.product-card h3 {
-  font-size: 24px;
-  margin-bottom: 12px;
-}
-
-.product-card p {
-  color: var(--muted);
-  line-height: 1.75;
-  font-size: 15px;
-}
-
-/* Featured */
-.featured-section {
-  padding: 46px 0 56px;
-}
-
-.featured-grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 20px;
-}
-
-.featured-card {
-  background: var(--panel);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  padding: 22px;
-  transition: 0.25s ease;
-}
-
-.featured-card:hover {
-  transform: translateY(-6px);
-  border-color: rgba(57,255,20,0.28);
-  box-shadow: 0 18px 40px rgba(0,0,0,0.32);
-}
-
-.featured-image-box {
-  min-height: 160px;
-  border-radius: 18px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background:
-    radial-gradient(circle at center, rgba(57,255,20,0.10), transparent 60%),
-    #070a07;
-  border: 1px solid rgba(57,255,20,0.10);
-  color: var(--green-soft);
-  font-family: "Orbitron", sans-serif;
-  font-size: 18px;
-  margin-bottom: 18px;
-}
-
-.featured-card h3 {
-  font-size: 22px;
-  margin-bottom: 10px;
-}
-
-.featured-card p {
-  color: var(--muted);
-  line-height: 1.7;
-}
-
-/* Launch */
-.launch-section {
-  padding: 34px 0 56px;
-}
-
-.launch-card {
-  display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: 24px;
-  align-items: center;
-  background: linear-gradient(135deg, rgba(57,255,20,0.08), rgba(255,255,255,0.03));
-  border: 1px solid rgba(57,255,20,0.14);
-  border-radius: 28px;
-  padding: 34px;
-  box-shadow: 0 16px 40px rgba(0,0,0,0.25);
-}
-
-.launch-copy h2 {
-  font-size: clamp(28px, 4vw, 40px);
-  margin-bottom: 12px;
-}
-
-.launch-copy p {
-  color: var(--muted);
-  line-height: 1.8;
-  font-size: 16px;
-}
-
-.launch-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  justify-content: flex-end;
-}
-
-.launch-tags span {
-  padding: 12px 16px;
-  border-radius: 999px;
-  background: rgba(57,255,20,0.08);
-  border: 1px solid rgba(57,255,20,0.18);
-  font-weight: 700;
-  color: var(--text);
-}
-
-/* Contact */
-.contact-section {
-  padding: 56px 0 84px;
-}
-
-.contact-grid {
-  display: grid;
-  grid-template-columns: 0.95fr 1.05fr;
-  gap: 28px;
-  align-items: center;
-}
-
-.contact-copy h2 {
-  font-size: clamp(30px, 4vw, 44px);
-  margin-bottom: 14px;
-}
-
-.contact-copy p {
-  color: var(--muted);
-  line-height: 1.8;
-  font-size: 17px;
-  margin-bottom: 26px;
-}
-
-.contact-visual {
-  display: flex;
-  justify-content: center;
-}
-
-.contact-image {
-  max-width: 440px;
-  width: 100%;
-  filter: drop-shadow(0 0 24px rgba(57,255,20,0.22));
-}
-
-/* Footer */
-.site-footer {
-  border-top: 1px solid var(--line);
-  background: rgba(255,255,255,0.02);
-  padding: 24px 0 34px;
-}
-
-.footer-wrap {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 18px;
-  flex-wrap: wrap;
-}
-
-.footer-brand {
-  font-family: "Orbitron", sans-serif;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-}
-
-.footer-sub {
-  color: var(--muted);
-  margin-top: 6px;
-  font-size: 14px;
-}
-
-.footer-link {
-  color: var(--green-soft);
-  font-weight: 800;
-}
-
-/* Responsive */
-@media (max-width: 1080px) {
-  .product-grid,
-  .featured-grid,
-  .launch-card,
-  .contact-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .launch-tags {
-    justify-content: flex-start;
-  }
-}
-
-@media (max-width: 840px) {
-  .nav-wrap {
-    flex-direction: column;
-    justify-content: center;
-    padding: 14px 0;
-  }
-
-  .nav-links {
-    justify-content: center;
-  }
-
-  .brand-logo {
-    width: 120px;
-  }
-
-  .hero-copy h1 {
-    font-size: 40px;
-  }
-
-  .section-heading h2,
-  .contact-copy h2,
-  .launch-copy h2 {
-    font-size: 30px;
-  }
-}
-
-@media (max-width: 640px) {
-  .container {
-    width: calc(100% - 20px);
-  }
-
-  .product-card,
-  .featured-card,
-  .launch-card {
-    padding-left: 20px;
-    padding-right: 20px;
-  }
-
-  .hero-actions {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .primary-btn,
-  .secondary-btn,
-  .email-btn {
-    width: 100%;
-  }
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gorilla TCG Co.</title>
+  <meta
+    name="description"
+    content="Premium Pokémon products for collectors and fans."
+  />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Orbitron:wght@600;700;800&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a href="#top" class="brand">
+        <img src="logo.png" alt="Gorilla TCG Co. logo" class="brand-logo" />
+      </a>
+
+      <nav class="nav-links">
+        <a href="#products">Products</a>
+        <a href="#featured">Featured</a>
+        <a href="#launch">Launch</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <a href="mailto:contact@gorillatcg.com" class="email-btn">Email Us</a>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <section class="hero">
+      <div class="container hero-wrap">
+        <img src="hero-banner.png" alt="Gorilla TCG Co. hero banner" class="hero-banner" />
+
+        <div class="hero-copy">
+          <p class="eyebrow">Premium Pokémon Retail Brand</p>
+          <h1>Premium Pokémon products for collectors and fans</h1>
+          <p class="hero-text">
+            Gorilla TCG Co. is building a premium destination for sealed Pokémon
+            products, singles, accessories, and collectible merchandise.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#products" class="primary-btn">Browse Products</a>
+            <a href="#contact" class="secondary-btn">Contact Us</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="products-section" id="products">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Core Categories</p>
+          <h2>Products We Carry</h2>
+          <p>Browse the product categories Gorilla TCG Co. is built around.</p>
+        </div>
+
+        <div class="product-grid">
+          <article class="product-card">
+            <img src="sealed_products_icon.png" alt="Sealed products icon" class="product-icon" />
+            <h3>Sealed Products</h3>
+            <p>
+              Booster boxes, booster packs, Elite Trainer Boxes, and other sealed Pokémon releases.
+            </p>
+          </article>
+
+          <article class="product-card">
+            <img src="singles_icon.png" alt="Singles icon" class="product-icon" />
+            <h3>Singles</h3>
+            <p>
+              Individual Pokémon cards for collectors, set builders, and fans looking for specific pulls.
+            </p>
+          </article>
+
+          <article class="product-card">
+            <img src="accessories_icon.png" alt="Accessories icon" class="product-icon" />
+            <h3>Accessories</h3>
+            <p>
+              Sleeves, binders, deck boxes, top loaders, and protection items for collectors.
+            </p>
+          </article>
+
+          <article class="product-card">
+            <img src="plush_icon.png" alt="Figures and plush icon" class="product-icon" />
+            <h3>Figures &amp; Plush</h3>
+            <p>
+              Pokémon collectible merchandise including plush items and display pieces.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="featured-section" id="featured">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Featured Products</p>
+          <h2>What You’ll Find In Store</h2>
+          <p>
+            A preview of the type of products Gorilla TCG Co. is built around.
+          </p>
+        </div>
+
+        <div class="featured-grid">
+          <div class="featured-card">
+            <div class="featured-image-box">Booster Box</div>
+            <h3>Booster Boxes</h3>
+            <p>Popular sealed products for collectors and pack openings.</p>
+          </div>
+
+          <div class="featured-card">
+            <div class="featured-image-box">ETB</div>
+            <h3>Elite Trainer Boxes</h3>
+            <p>Premium boxed products with collectible presentation.</p>
+          </div>
+
+          <div class="featured-card">
+            <div class="featured-image-box">Booster Pack</div>
+            <h3>Booster Packs</h3>
+            <p>Featured packs for ripping, collecting, and restocks.</p>
+          </div>
+
+          <div class="featured-card">
+            <div class="featured-image-box">Sleeves</div>
+            <h3>Accessories</h3>
+            <p>Protection gear and supplies for hobby collectors.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="launch-section" id="launch">
+      <div class="container launch-card">
+        <div class="launch-copy">
+          <p class="eyebrow">Launch Status</p>
+          <h2>Store launch in progress</h2>
+          <p>
+            Gorilla TCG Co. is currently building out the full storefront experience
+            and preparing for future product releases.
+          </p>
+        </div>
+
+        <div class="launch-tags">
+          <span>Premium Branding</span>
+          <span>Collector Focused</span>
+          <span>Online Storefront</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact-section" id="contact">
+      <div class="container contact-grid">
+        <div class="contact-copy">
+          <p class="eyebrow">Business Contact</p>
+          <h2>Get in touch with Gorilla TCG Co.</h2>
+          <p>
+            For questions, business inquiries, or partnership opportunities,
+            reach out directly by email.
+          </p>
+
+          <a href="mailto:contact@gorillatcg.com" class="primary-btn">
+            contact@gorillatcg.com
+          </a>
+        </div>
+
+        <div class="contact-visual">
+          <img src="contact-gorilla.png" alt="Gorilla TCG support mascot" class="contact-image" />
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-wrap">
+      <div>
+        <div class="footer-brand">GORILLA TCG CO.</div>
+        <div class="footer-sub">Premium Pokémon products for collectors and fans</div>
+      </div>
+
+      <a href="mailto:contact@gorillatcg.com" class="footer-link">contact@gorillatcg.com</a>
+    </div>
+  </footer>
+
+</body>
+</html>
