@@ -623,6 +623,33 @@ h1, h2, h3, p {
   .card-1, .card-2, .card-3, .card-4, .card-5, .card-6 {
     opacity: 0.55;
   }
+  .site-footer {
+  margin-top: 80px;
+  padding: 40px 20px;
+  text-align: center;
+  background: #050505;
+  border-top: 1px solid rgba(0,255,120,0.25);
+}
+
+.footer-links {
+  margin-bottom: 15px;
+}
+
+.footer-links a {
+  margin: 0 15px;
+  text-decoration: none;
+  color: #00ff88;
+  font-size: 14px;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}
+
+.site-footer p {
+  color: #aaa;
+  font-size: 13px;
+}
   /* Category Icons Fix */
 .category-icon {
   width: 90px;
