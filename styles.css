@@ -634,4 +634,16 @@ h1, h2, h3, p {
   box-shadow: 0 0 18px rgba(0,255,120,0.4), inset 0 0 12px rgba(0,255,120,0.15);
   object-fit: contain;
 }
+  .site-footer {
+  margin-top: 80px;
+  padding: 30px;
+  text-align: center;
+  background: #050505;
+  border-top: 1px solid rgba(0,255,120,0.2);
+}
+
+.site-footer p {
+  color: #aaa;
+  font-size: 14px;
+}
 }
